@@ -32,7 +32,6 @@ if __name__ == '__main__':
     num_tasks = 5
     total_utilization = 0.75
     tasks = uunifast(num_tasks, total_utilization)
-
     for task in tasks:
         print(
             f"Task {task['task_id']}: Execution Time = {task['execution_time']:.2f}, Deadline = {task['deadline']}, Period = {task['period']}, Utilization = {task['utilization']:.2f}, Priority = {task['priority']}")
