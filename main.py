@@ -65,15 +65,6 @@ def add_precedence(tasks):
     return tasks
 
 
-if __name__ == '__main__':
-    num_tasks = 50
-    total_utilization = 0.25
-    # gives a list of task objects
-    tasks = generate_non_periodic_tasks(num_tasks, total_utilization)
-    for task in tasks:
-        print(task)
-
-
 def least_laxity_first(tasks):
     current_time = 0
     while True:
@@ -97,6 +88,15 @@ def least_laxity_first(tasks):
         # Move to the next time step
         current_time += 1
 
+if __name__ == '__main__':
+    num_tasks = 50
+    total_utilization = 0.25
+    # gives a list of task objects
+    tasks = generate_non_periodic_tasks(num_tasks, total_utilization)
+    least_laxity_first(tasks)
+    for task in tasks:
+        print(task)
+        
 # # Example usage:
 # tasks = [
 #     Task(id=1, release_time=0, execution_time=10, deadline=33),
