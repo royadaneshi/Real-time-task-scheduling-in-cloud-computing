@@ -54,15 +54,22 @@ def generate_non_periodic_tasks(num_tasks, total_utilization):
 
 def add_precedence(tasks):
     num_tasks = len(tasks)
+    task=[]
     for i in range(1, num_tasks):
         num_predecessors = random.randint(0, i)
         if num_predecessors > 0:
             predecessors = random.sample(range(i), num_predecessors)
             tasks[i]['predecessors'] = predecessors
+            task.append(Task(tasks[i]['task_id'], tasks[i]['release_time'], tasks[i]['execution_time'],
+                            tasks[i]['deadline'], tasks[i]['utilization'], tasks[i]['priority'],
+                            tasks[i]['predecessors']))
         else:
             tasks[i]['predecessors'] = []
+            task.append(Task(tasks[i]['task_id'], tasks[i]['release_time'], tasks[i]['execution_time'],
+                            tasks[i]['deadline'], tasks[i]['utilization'], tasks[i]['priority'],
+                            tasks[i]['predecessors']))
 
-    return tasks
+    return task
 
 
 def least_laxity_first(tasks):
@@ -88,15 +95,16 @@ def least_laxity_first(tasks):
         # Move to the next time step
         current_time += 1
 
+
 if __name__ == '__main__':
     num_tasks = 50
     total_utilization = 0.25
     # gives a list of task objects
     tasks = generate_non_periodic_tasks(num_tasks, total_utilization)
     least_laxity_first(tasks)
-    for task in tasks:
-        print(task)
-        
+    # for task in tasks:
+    #     print(task)
+
 # # Example usage:
 # tasks = [
 #     Task(id=1, release_time=0, execution_time=10, deadline=33),
