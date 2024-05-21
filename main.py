@@ -24,7 +24,6 @@ def uunifast(num_tasks, total_utilization):
     utilizations.append(sumU)
     return utilizations
 
-
 def generate_non_periodic_tasks(num_tasks, total_utilization):
     utilizations = uunifast(num_tasks, total_utilization)
     tasks = []
