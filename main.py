@@ -3,6 +3,8 @@ import random
 
 # llf for Aperiodic independent task on uniprocessor:
 class Task:
+    tasks = {}
+
     def __init__(self, id, release_time, execution_time, deadline, utilization, priority, predecessors):
         self.id = id
         self.release_time = release_time
@@ -12,6 +14,10 @@ class Task:
         self.utilization = utilization
         self.priority = priority
         self.predecessors = predecessors
+        Task.tasks[id] = self
+
+    def get_task(id):
+        return Task.tasks[id]
 
 
 def uunifast(num_tasks, total_utilization):
@@ -24,6 +30,7 @@ def uunifast(num_tasks, total_utilization):
     utilizations.append(sumU)
     return utilizations
 
+
 def generate_non_periodic_tasks(num_tasks, total_utilization):
     utilizations = uunifast(num_tasks, total_utilization)
     tasks = []
@@ -35,40 +42,30 @@ def generate_non_periodic_tasks(num_tasks, total_utilization):
         max_release_time = deadline - execution_time
         release_time = random.uniform(0, max_release_time) if max_release_time > 0 else 0
 
-        tasks.append({
-            'task_id': i + 1,
-            'execution_time': int(execution_time),
-            'deadline': int(deadline),
-            'release_time': int(release_time),
-            'utilization': util
-        })
+        tasks.append(Task(i, int(release_time), int(execution_time), int(deadline), util, 0, []))
 
     # Sort tasks by deadlines for priority assignment (Deadline Monotonic)
-    tasks.sort(key=lambda x: x['deadline'])
+    tasks.sort(key=lambda x: x.deadline)
     for i, task in enumerate(tasks):
         # Lower number means higher priority
-        task['priority'] = i + 1
+        tasks[i].priority = i + 1
     return add_precedence(tasks)
 
 
 def add_precedence(tasks):
     num_tasks = len(tasks)
-    task=[]
     for i in range(1, num_tasks):
         num_predecessors = random.randint(0, i)
         if num_predecessors > 0:
-            predecessors = random.sample(range(i), num_predecessors)
-            tasks[i]['predecessors'] = predecessors
-            task.append(Task(tasks[i]['task_id'], tasks[i]['release_time'], tasks[i]['execution_time'],
-                            tasks[i]['deadline'], tasks[i]['utilization'], tasks[i]['priority'],
-                            tasks[i]['predecessors']))
-        else:
-            tasks[i]['predecessors'] = []
-            task.append(Task(tasks[i]['task_id'], tasks[i]['release_time'], tasks[i]['execution_time'],
-                            tasks[i]['deadline'], tasks[i]['utilization'], tasks[i]['priority'],
-                            tasks[i]['predecessors']))
+            predecessors1 = random.sample(range(i), num_predecessors)
+            predecessors = [Task.get_task(pre) for pre in predecessors1]
+            # print(predecessors)
+            tasks[i].predecessors = predecessors
 
-    return task
+        else:
+            tasks[i].predecessors = []
+
+    return tasks
 
 
 def least_laxity_first(tasks):
@@ -101,8 +98,9 @@ if __name__ == '__main__':
     # gives a list of task objects
     tasks = generate_non_periodic_tasks(num_tasks, total_utilization)
     least_laxity_first(tasks)
+    # print(tasks)
     # for task in tasks:
-    #     print(task)
+    #     print(task.predecessors)
 
 # # Example usage:
 # tasks = [
