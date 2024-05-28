@@ -1,11 +1,11 @@
-import copy
+# real-time proj:
 import random
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from queue import PriorityQueue
 
-
-# llf for Aperiodic independent task on uniprocessor:
+# Task class
 class Task:
     tasks = {}
 
@@ -22,16 +22,19 @@ class Task:
         self.successors = []
         self.core = None
 
-
-
     @staticmethod
     def get_task(id):
         return Task.tasks[id]
 
     def add_successor(self, successor):
         self.successors.append(successor)
+    
+    def __lt__(self, other):
+        # Define the comparison based on laxity for PriorityQueue
+        return (self.deadline - self.remaining_execution_time) < (other.deadline - other.remaining_execution_time)
 
 
+# Functions to generate tasks
 def uunifast(num_tasks, total_utilization):
     utilizations = []
     sumU = total_utilization
@@ -42,27 +45,19 @@ def uunifast(num_tasks, total_utilization):
     utilizations.append(sumU)
     return utilizations
 
-
 def generate_non_periodic_tasks(num_tasks, total_utilization):
     utilizations = uunifast(num_tasks, total_utilization)
     tasks = []
     for i, util in enumerate(utilizations):
         execution_time = random.uniform(1, 10)
         deadline = execution_time + random.uniform(5, 15)
-
-        # Ensure that release time is always less than deadline
         max_release_time = deadline - execution_time
         release_time = random.uniform(0, max_release_time) if max_release_time > 0 else 0
-
         tasks.append(Task(i + 1, int(release_time), int(execution_time), int(deadline), util, 0, []))
-
-    # Sort tasks by deadlines for priority assignment (Deadline Monotonic)
     tasks.sort(key=lambda x: x.deadline)
     for i, task in enumerate(tasks):
-        # Lower number means higher priority
         tasks[i].priority = i + 1
     return add_precedence(tasks)
-
 
 def add_precedence(tasks):
     num_tasks = len(tasks)
@@ -76,170 +71,143 @@ def add_precedence(tasks):
                 predecessor_task.add_successor(tasks[i])
     return tasks
 
+# Assign tasks to cores based on successors
+def assign_cores(tasks, num_cores):
+    sorted_tasks = sorted(tasks, key=lambda t: len(t.successors), reverse=True)
+    core_tasks = [[] for _ in range(num_cores)]
+    for i, task in enumerate(sorted_tasks):
+        core_tasks[i % num_cores].append(task)
+    return core_tasks
 
-def calculate_mobility(tasks):
-    for task in tasks:
-        task.mobility = len(task.successors)
-    tasks.sort(key=lambda t: t.mobility, reverse=True)
-
-def assign_tasks_to_cores(tasks, num_cores=16):
-    calculate_mobility(tasks)
-    cores = [[] for _ in range(num_cores)]
-    for i, task in enumerate(tasks):
-        core_index = i % num_cores
-        task.core = core_index
-        cores[core_index].append(task)
-    return cores
-
-
-def least_laxity_first(cores):
-    current_time = 0
+# LLF scheduling function with QoS calculation
+def llf_schedule(core_tasks):
+    time = 0
+    global_schedule = []
+    core_queues = [PriorityQueue() for _ in core_tasks]
     QoS_list = []
-    jitter_list = []
     time_list = []
-    schedulable = True
-    while any(task.remaining_execution_time > 0 for core in cores for task in core):
-        available_tasks = []
-        for core in cores:
-            for task in core:
-                if task.release_time <= current_time and task.remaining_execution_time > 0:
-                    if all(pred.remaining_execution_time == 0 for pred in task.predecessors):
-                        available_tasks.append(task)
 
-        if not available_tasks:
-            current_time += 1
-            continue  # No tasks available, move to next time step
+    for i, tasks in enumerate(core_tasks):
+        for task in tasks:
+            if task.remaining_execution_time > 0:
+                laxity = task.deadline - task.remaining_execution_time
+                core_queues[i].put((laxity, task))
 
-        laxities = {task: task.deadline - current_time - task.remaining_execution_time for task in available_tasks}
-        min_laxity_task = min(laxities, key=laxities.get)
+    while any(not core_queues[i].empty() for i in range(len(core_tasks))):
+        current_schedule = []
         QoS = 1
 
-        for slack in laxities.values():
+        for i in range(len(core_tasks)):
+            if not core_queues[i].empty():
+                laxity, current_task = core_queues[i].get()
+                if current_task.remaining_execution_time > 0:
+                    current_task.remaining_execution_time -= 1
+                    current_schedule.append((time, current_task.id, i + 1))
+                    if current_task.remaining_execution_time > 0:
+                        laxity = current_task.deadline - time - current_task.remaining_execution_time
+                        core_queues[i].put((laxity, current_task))
+
+        for _, task_id, _ in current_schedule:
+            task = Task.get_task(task_id)
+            slack = task.deadline - time - task.remaining_execution_time
             if slack < 0:
-                schedulable = False
-                QoS += slack / current_time
+                QoS += slack / time
                 QoS = QoS % 1
 
-
-
-        print(f"Executing Task {min_laxity_task.id} on Core {min_laxity_task.core} at time {current_time}")
-        min_laxity_task.remaining_execution_time -= 1
-
+        global_schedule.extend(current_schedule)
         QoS_list.append(QoS)
-        time_list.append(current_time)
+        time_list.append(time)
+        time += 1
 
-        current_time += 1
+    return QoS_list, time_list, global_schedule
 
-    return QoS_list, time_list, schedulable
-
-
-def scheduability_plot():
-    num_tasks = 4
-    total_utilization = 0.25
-    tasks = generate_non_periodic_tasks(num_tasks, total_utilization)
-    for ta in tasks:
-        print(ta.id, ta.execution_time, ta.deadline, ta.release_time)
-        for p in ta.predecessors:
-            print(p.id)
-    cores1 = assign_tasks_to_cores(tasks, 16)
-    _, _, schuable1 = least_laxity_first(cores1)
-    if schuable1:
-        print("yes")
-    # schedulable_counter1 = 0
-    # schedulable_counter2 = 0
-    # schedulable_counter3 = 0
-
-    # schedulable_counter4 = 0
-    # for i in range(0, 100):
-    #     num_tasks = 4
-    #     total_utilization = 0.25
-    #     tasks = generate_non_periodic_tasks(num_tasks, total_utilization)
-    #     cores1 = assign_tasks_to_cores(tasks, 16)
-    #     _, _, schuable1 = least_laxity_first(cores1)
-    #     if schuable1:
-    #         schedulable_counter1 += 1
-    #     total_utilization = 0.5
-    #     tasks2 = generate_non_periodic_tasks(num_tasks, total_utilization)
-    #     cores = assign_tasks_to_cores(tasks2, 16)
-    #     _, _, schuable2 = least_laxity_first(cores)
-    #     if schuable2:
-    #         schedulable_counter2 += 1
-    #     total_utilization = 0.3
-    #     tasks2 = generate_non_periodic_tasks(num_tasks, total_utilization)
-    #     cores = assign_tasks_to_cores(tasks2, 32)
-    #     _, _, schuable3 = least_laxity_first(cores)
-    #     if schuable3:
-    #         schedulable_counter3 += 1
-    #     total_utilization = 0.7
-    #     tasks2 = generate_non_periodic_tasks(num_tasks, total_utilization)
-    #     cores = assign_tasks_to_cores(tasks2, 32)
-    #     _, _, schuable4 = least_laxity_first(cores)
-    #     if schuable4:
-    #         schedulable_counter4 += 1
-    #
-    # scheduales = [schedulable_counter1, schedulable_counter4, schedulable_counter3, schedulable_counter4]
-    # print(scheduales)
-    # plt.figure(figsize=(24, 18))
-    # plt.bar(np.arange(4), scheduales, width=0.5)
-    # plt.xlabel('system types')
-    # plt.ylabel('number of tasks')
-    # plt.title('number of schedulable task sets over 100')
-    # plt.legend()
-    #
-    # plt.tight_layout()
-    # plt.show()
-
+# Function to generate and schedule tasks
+#def scheduability_plot():
+#    num_tasks = 4
+#    total_utilization = 0.25
+#    tasks = generate_non_periodic_tasks(num_tasks, total_utilization)
+#    for ta in tasks:
+#        print(ta.id, ta.execution_time, ta.deadline, ta.release_time)
+#        for p in ta.predecessors:
+#            print(p.id)
+#    cores1 = assign_cores(tasks, 16)
+#    QoS_list, time_list, global_schedule = llf_schedule(cores1)
+#    for time, task_name, core_id in global_schedule:
+#        print(f"Time {time}: Task {task_name} on Core {core_id}")
+#
+#    plt.figure(figsize=(10, 5))
+#    plt.plot(time_list, QoS_list, label='QoS over Time')
+#    plt.xlabel('Time')
+#    plt.ylabel('QoS')
+#    plt.title('QoS over Time')
+#    plt.legend()
+#    plt.show()
 
 if __name__ == '__main__':
     num_tasks = 50
     total_utilization = 0.25
     tasks = generate_non_periodic_tasks(num_tasks, total_utilization)
-    cores1 = assign_tasks_to_cores(tasks, 16)
-    QoS_list_16_1, time_list_16_1, _ = least_laxity_first(cores1)
+    cores1 = assign_cores(tasks, 16)
+    QoS_list_16_1, time_list_16_1, global_schedule_16_1 = llf_schedule(cores1)
+    print("tasks on system with 16 cores and utilization of 0.25:")
+    for time, task_name, core_id in global_schedule_16_1:
+        print(f"Time {time}: Task {task_name} on Core {core_id}")
 
     total_utilization = 0.5
     tasks2 = generate_non_periodic_tasks(num_tasks, total_utilization)
-    cores = assign_tasks_to_cores(tasks2, 16)
-    QoS_list_16_2, time_list_16_2, _ = least_laxity_first(cores)
+    cores2 = assign_cores(tasks2, 16)
+    QoS_list_16_2, time_list_16_2, global_schedule_16_2 = llf_schedule(cores2)
+    print("tasks on system with 16 cores and utilization of 0.5:")
+    for time, task_name, core_id in global_schedule_16_2:
+        print(f"Time {time}: Task {task_name} on Core {core_id}")
 
     total_utilization = 0.3
-    tasks2 = generate_non_periodic_tasks(num_tasks, total_utilization)
-    cores = assign_tasks_to_cores(tasks2, 32)
-    QoS_list_32_1, time_list_32_1, _ = least_laxity_first(cores)
+    tasks3 = generate_non_periodic_tasks(num_tasks, total_utilization)
+    cores3 = assign_cores(tasks3, 32)
+    QoS_list_32_1, time_list_32_1, global_schedule_32_1 = llf_schedule(cores3)
+    print("tasks on system with 32 cores and utilization of 0.3:")
+    for time, task_name, core_id in global_schedule_32_1:
+        print(f"Time {time}: Task {task_name} on Core {core_id}")
 
     total_utilization = 0.7
-    tasks2 = generate_non_periodic_tasks(num_tasks, total_utilization)
-    cores = assign_tasks_to_cores(tasks2, 32)
-    QoS_list_32_2, time_list_32_2, _ = least_laxity_first(cores)
+    tasks4 = generate_non_periodic_tasks(num_tasks, total_utilization)
+    cores4 = assign_cores(tasks4, 32)
+    QoS_list_32_2, time_list_32_2, global_schedule_32_2 = llf_schedule(cores4)
+    print("tasks on system with 32 cores and utilization of 0.7:")
+    for time, task_name, core_id in global_schedule_32_2:
+        print(f"Time {time}: Task {task_name} on Core {core_id}")
 
     plt.figure(figsize=(24, 18))
+
     plt.subplot(2, 2, 1)
-    plt.bar(time_list_16_1, QoS_list_16_1, width=0.5, label='QoS')
+    plt.plot(time_list_16_1, QoS_list_16_1, label='QoS', marker='o')
     plt.xlabel('Time')
-    plt.ylabel('time_list_16_1')
-    plt.title(' QoS_list_16_1 over Time')
+    plt.ylabel('QoS_list_16_1')
+    plt.title('QoS_list_16_1 over Time')
     plt.legend()
+
     plt.subplot(2, 2, 2)
-    plt.bar(time_list_16_2, QoS_list_16_2, width=0.5, label='QoS')
+    plt.plot(time_list_16_2, QoS_list_16_2, label='QoS', marker='o')
     plt.xlabel('Time')
     plt.ylabel('QoS_list_16_2')
     plt.title('QoS_list_16_2 over Time')
     plt.legend()
 
     plt.subplot(2, 2, 3)
-    plt.bar(time_list_32_1, QoS_list_32_1, width=0.5, label='QoS')
+    plt.plot(time_list_32_1, QoS_list_32_1, label='QoS', marker='o')
     plt.xlabel('Time')
     plt.ylabel('QoS_list_32_1')
-    plt.title(' QoS_list_32_1 over Time')
+    plt.title('QoS_list_32_1 over Time')
     plt.legend()
 
     plt.subplot(2, 2, 4)
-    plt.bar(time_list_32_2, QoS_list_32_2, width=0.5, label='QoS')
+    plt.plot(time_list_32_2, QoS_list_32_2, label='QoS', marker='o')
     plt.xlabel('Time')
     plt.ylabel('QoS_list_32_2')
-    plt.title(' QoS_list_32_2 over Time')
+    plt.title('QoS_list_32_2 over Time')
     plt.legend()
 
     plt.tight_layout()
     plt.show()
-    scheduability_plot()
+
+    #scheduability_plot()
