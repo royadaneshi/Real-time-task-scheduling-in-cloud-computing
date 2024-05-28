@@ -84,7 +84,7 @@ def add_precedence(tasks):
 def calculate_mobility(tasks):
     for task in tasks:
         task.mobility = len(task.successors)
-    tasks.sort(key=lambda t: t.mobility)
+    tasks.sort(key=lambda t: t.mobility, reverse=True)
 
 
 def assign_tasks_to_cores(tasks, num_cores=16):
@@ -102,7 +102,7 @@ def least_laxity_first(cores):
     QoS_list = []
     jitter_list = []
     time_list = []
-
+    schedulable = True
     while any(task.remaining_execution_time > 0 for core in cores for task in core):
         available_tasks = []
         for core in cores:
@@ -121,7 +121,9 @@ def least_laxity_first(cores):
 
         for slack in laxities.values():
             if slack < 0:
-                QoS = QoS * 0.5
+                schedulable = False
+                QoS += slack / current_time
+                QoS = QoS % 1
 
         if min_laxity_task.execution_start_time is None:
             min_laxity_task.execution_start_time = current_time
@@ -134,7 +136,52 @@ def least_laxity_first(cores):
 
         current_time += 1
 
-    return QoS_list, time_list
+    return QoS_list, time_list, schedulable
+
+
+def scheduability_plot():
+    schedulable_counter1 = 0
+    schedulable_counter2 = 0
+    schedulable_counter3 = 0
+    schedulable_counter4 = 0
+    for i in range(0, 100):
+        num_tasks = 50
+        total_utilization = 0.25
+        tasks = generate_non_periodic_tasks(num_tasks, total_utilization)
+        cores1 = assign_tasks_to_cores(tasks, 16)
+        _, _, schuable1 = least_laxity_first(cores1)
+        if schuable1:
+            schedulable_counter1 += 1
+        total_utilization = 0.5
+        tasks2 = generate_non_periodic_tasks(num_tasks, total_utilization)
+        cores = assign_tasks_to_cores(tasks2, 16)
+        _, _, schuable2 = least_laxity_first(cores)
+        if schuable2:
+            schedulable_counter2 += 1
+        total_utilization = 0.3
+        tasks2 = generate_non_periodic_tasks(num_tasks, total_utilization)
+        cores = assign_tasks_to_cores(tasks2, 32)
+        _, _, schuable3 = least_laxity_first(cores)
+        if schuable3:
+            schedulable_counter3 += 1
+        total_utilization = 0.7
+        tasks2 = generate_non_periodic_tasks(num_tasks, total_utilization)
+        cores = assign_tasks_to_cores(tasks2, 32)
+        _, _, schuable4 = least_laxity_first(cores)
+        if schuable4:
+            schedulable_counter4 += 1
+
+    scheduales = [schedulable_counter1, schedulable_counter4, schedulable_counter3, schedulable_counter4]
+    print(scheduales)
+    plt.figure(figsize=(24, 18))
+    plt.bar(np.arange(4), scheduales, width=0.5)
+    plt.xlabel('system types')
+    plt.ylabel('number of tasks')
+    plt.title('number of schedulable task sets over 100')
+    plt.legend()
+
+    plt.tight_layout()
+    plt.show()
 
 
 if __name__ == '__main__':
@@ -142,22 +189,22 @@ if __name__ == '__main__':
     total_utilization = 0.25
     tasks = generate_non_periodic_tasks(num_tasks, total_utilization)
     cores1 = assign_tasks_to_cores(tasks, 16)
-    QoS_list_16_1, time_list_16_1 = least_laxity_first(cores1)
+    QoS_list_16_1, time_list_16_1, _ = least_laxity_first(cores1)
 
     total_utilization = 0.5
     tasks2 = generate_non_periodic_tasks(num_tasks, total_utilization)
     cores = assign_tasks_to_cores(tasks2, 16)
-    QoS_list_16_2, time_list_16_2 = least_laxity_first(cores)
+    QoS_list_16_2, time_list_16_2, _ = least_laxity_first(cores)
 
     total_utilization = 0.3
     tasks2 = generate_non_periodic_tasks(num_tasks, total_utilization)
     cores = assign_tasks_to_cores(tasks2, 32)
-    QoS_list_32_1, time_list_32_1 = least_laxity_first(cores)
+    QoS_list_32_1, time_list_32_1, _ = least_laxity_first(cores)
 
     total_utilization = 0.7
     tasks2 = generate_non_periodic_tasks(num_tasks, total_utilization)
     cores = assign_tasks_to_cores(tasks2, 32)
-    QoS_list_32_2, time_list_32_2 = least_laxity_first(cores)
+    QoS_list_32_2, time_list_32_2, _ = least_laxity_first(cores)
 
     plt.figure(figsize=(24, 18))
     plt.subplot(2, 2, 1)
@@ -189,3 +236,4 @@ if __name__ == '__main__':
 
     plt.tight_layout()
     plt.show()
+    scheduability_plot()
