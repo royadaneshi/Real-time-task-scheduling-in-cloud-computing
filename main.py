@@ -82,7 +82,6 @@ def calculate_mobility(tasks):
         task.mobility = len(task.successors)
     tasks.sort(key=lambda t: t.mobility, reverse=True)
 
-
 def assign_tasks_to_cores(tasks, num_cores=16):
     calculate_mobility(tasks)
     cores = [[] for _ in range(num_cores)]
