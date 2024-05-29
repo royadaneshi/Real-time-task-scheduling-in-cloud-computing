@@ -1,9 +1,7 @@
-# real-time proj:
 import random
 import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
 from queue import PriorityQueue
+
 
 # Task class
 class Task:
@@ -28,7 +26,7 @@ class Task:
 
     def add_successor(self, successor):
         self.successors.append(successor)
-    
+
     def __lt__(self, other):
         # Define the comparison based on laxity for PriorityQueue
         return (self.deadline - self.remaining_execution_time) < (other.deadline - other.remaining_execution_time)
@@ -45,6 +43,7 @@ def uunifast(num_tasks, total_utilization):
     utilizations.append(sumU)
     return utilizations
 
+
 def generate_non_periodic_tasks(num_tasks, total_utilization):
     utilizations = uunifast(num_tasks, total_utilization)
     tasks = []
@@ -59,6 +58,7 @@ def generate_non_periodic_tasks(num_tasks, total_utilization):
         tasks[i].priority = i + 1
     return add_precedence(tasks)
 
+
 def add_precedence(tasks):
     num_tasks = len(tasks)
     for i in range(1, num_tasks):
@@ -71,6 +71,7 @@ def add_precedence(tasks):
                 predecessor_task.add_successor(tasks[i])
     return tasks
 
+
 # Assign tasks to cores based on successors
 def assign_cores(tasks, num_cores):
     sorted_tasks = sorted(tasks, key=lambda t: len(t.successors), reverse=True)
@@ -79,6 +80,7 @@ def assign_cores(tasks, num_cores):
         core_tasks[i % num_cores].append(task)
     return core_tasks
 
+
 # LLF scheduling function with QoS calculation
 def llf_schedule(core_tasks):
     time = 0
@@ -86,7 +88,7 @@ def llf_schedule(core_tasks):
     core_queues = [PriorityQueue() for _ in core_tasks]
     QoS_list = []
     time_list = []
-
+    slack_time = None
     for i, tasks in enumerate(core_tasks):
         for task in tasks:
             if task.remaining_execution_time > 0:
@@ -113,101 +115,131 @@ def llf_schedule(core_tasks):
             if slack < 0:
                 QoS += slack / time
                 QoS = QoS % 1
+            if slack <= -task.deadline:
+                slack_time = slack
 
         global_schedule.extend(current_schedule)
         QoS_list.append(QoS)
         time_list.append(time)
         time += 1
 
-    return QoS_list, time_list, global_schedule
+    return QoS_list, time_list, global_schedule, slack_time
+
 
 # Function to generate and schedule tasks
-#def scheduability_plot():
-#    num_tasks = 4
-#    total_utilization = 0.25
-#    tasks = generate_non_periodic_tasks(num_tasks, total_utilization)
-#    for ta in tasks:
-#        print(ta.id, ta.execution_time, ta.deadline, ta.release_time)
-#        for p in ta.predecessors:
-#            print(p.id)
-#    cores1 = assign_cores(tasks, 16)
-#    QoS_list, time_list, global_schedule = llf_schedule(cores1)
-#    for time, task_name, core_id in global_schedule:
-#        print(f"Time {time}: Task {task_name} on Core {core_id}")
-#
-#    plt.figure(figsize=(10, 5))
-#    plt.plot(time_list, QoS_list, label='QoS over Time')
-#    plt.xlabel('Time')
-#    plt.ylabel('QoS')
-#    plt.title('QoS over Time')
-#    plt.legend()
-#    plt.show()
+def schedulability():
+    schedulable_16_25 = 100
+    schedulable_16_05 = 100
+    schedulable_32_3 = 100
+    schedulable_32_7 = 100
+    for i in range(0, 100):
+        num_tasks = 50
+        total_utilization = 0.25
+        tasks = generate_non_periodic_tasks(num_tasks, total_utilization)
+        cores1 = assign_cores(tasks, 16)
+        _, _, _, slack = llf_schedule(cores1)
+        if slack:
+            schedulable_16_25 -= 1
+    for i in range(0, 100):
+        num_tasks = 50
+        total_utilization = 0.5
+        tasks = generate_non_periodic_tasks(num_tasks, total_utilization)
+        cores1 = assign_cores(tasks, 16)
+        _, _, _, slack = llf_schedule(cores1)
+        if slack:
+            schedulable_16_05 -= 1
 
-if __name__ == '__main__':
+    for i in range(0, 100):
+        num_tasks = 50
+        total_utilization = 0.3
+        tasks = generate_non_periodic_tasks(num_tasks, total_utilization)
+        cores1 = assign_cores(tasks, 32)
+        _, _, _, slack = llf_schedule(cores1)
+        if slack:
+            schedulable_32_3 -= 1
+
+    for i in range(0, 100):
+        num_tasks = 50
+        total_utilization = 0.7
+        tasks = generate_non_periodic_tasks(num_tasks, total_utilization)
+        cores1 = assign_cores(tasks, 32)
+        _, _, _, slack = llf_schedule(cores1)
+        if slack:
+            schedulable_32_7 -= 1
+
+    fig = plt.figure(figsize=(10, 5))
+    type = ['16 core with 0.25 utilization', '16 core with 0.5 utilization', '32 core with 0.3 utilization',
+            '32 core with 0.7 utilization']
+    systems = [schedulable_16_25, schedulable_16_05, schedulable_32_3, schedulable_32_7]
+    plt.bar(type, systems, color=['#FF796C', '#F97306', '#DBB40C', 'pink'], width=0.4)
+    plt.grid()
+
+    plt.xlabel("System type")
+    plt.ylabel("Number of scheulable task sets")
+    plt.title("Schedulable tasks")
+    plt.show()
+
+
+def Qos():
+    global tasks
     num_tasks = 50
     total_utilization = 0.25
     tasks = generate_non_periodic_tasks(num_tasks, total_utilization)
     cores1 = assign_cores(tasks, 16)
-    QoS_list_16_1, time_list_16_1, global_schedule_16_1 = llf_schedule(cores1)
+    QoS_list_16_1, time_list_16_1, global_schedule_16_1, _ = llf_schedule(cores1)
     print("tasks on system with 16 cores and utilization of 0.25:")
     for time, task_name, core_id in global_schedule_16_1:
         print(f"Time {time}: Task {task_name} on Core {core_id}")
-
     total_utilization = 0.5
     tasks2 = generate_non_periodic_tasks(num_tasks, total_utilization)
     cores2 = assign_cores(tasks2, 16)
-    QoS_list_16_2, time_list_16_2, global_schedule_16_2 = llf_schedule(cores2)
+    QoS_list_16_2, time_list_16_2, global_schedule_16_2, _ = llf_schedule(cores2)
     print("tasks on system with 16 cores and utilization of 0.5:")
     for time, task_name, core_id in global_schedule_16_2:
         print(f"Time {time}: Task {task_name} on Core {core_id}")
-
     total_utilization = 0.3
     tasks3 = generate_non_periodic_tasks(num_tasks, total_utilization)
     cores3 = assign_cores(tasks3, 32)
-    QoS_list_32_1, time_list_32_1, global_schedule_32_1 = llf_schedule(cores3)
+    QoS_list_32_1, time_list_32_1, global_schedule_32_1, _ = llf_schedule(cores3)
     print("tasks on system with 32 cores and utilization of 0.3:")
     for time, task_name, core_id in global_schedule_32_1:
         print(f"Time {time}: Task {task_name} on Core {core_id}")
-
     total_utilization = 0.7
     tasks4 = generate_non_periodic_tasks(num_tasks, total_utilization)
     cores4 = assign_cores(tasks4, 32)
-    QoS_list_32_2, time_list_32_2, global_schedule_32_2 = llf_schedule(cores4)
+    QoS_list_32_2, time_list_32_2, global_schedule_32_2, _ = llf_schedule(cores4)
     print("tasks on system with 32 cores and utilization of 0.7:")
     for time, task_name, core_id in global_schedule_32_2:
         print(f"Time {time}: Task {task_name} on Core {core_id}")
-
-    plt.figure(figsize=(24, 18))
-
+    plt.figure(figsize=(12, 6))
     plt.subplot(2, 2, 1)
-    plt.plot(time_list_16_1, QoS_list_16_1, label='QoS', marker='o')
+    plt.plot(time_list_16_1, QoS_list_16_1, label='QoS', marker='o', color='c')
     plt.xlabel('Time')
-    plt.ylabel('QoS_list_16_1')
-    plt.title('QoS_list_16_1 over Time')
+    plt.ylabel('QoS')
+    plt.title('QoS of 16 core system with utilization=0.25')
     plt.legend()
-
     plt.subplot(2, 2, 2)
-    plt.plot(time_list_16_2, QoS_list_16_2, label='QoS', marker='o')
+    plt.plot(time_list_16_2, QoS_list_16_2, label='QoS', marker='o', color='m')
     plt.xlabel('Time')
-    plt.ylabel('QoS_list_16_2')
-    plt.title('QoS_list_16_2 over Time')
+    plt.ylabel('QoS')
+    plt.title('QoS of 16 core system with utilization=0.5')
     plt.legend()
-
     plt.subplot(2, 2, 3)
-    plt.plot(time_list_32_1, QoS_list_32_1, label='QoS', marker='o')
+    plt.plot(time_list_32_1, QoS_list_32_1, label='QoS', marker='o', color='g')
     plt.xlabel('Time')
-    plt.ylabel('QoS_list_32_1')
-    plt.title('QoS_list_32_1 over Time')
+    plt.ylabel('QoS')
+    plt.title('QoS of 32 core system with utilization=0.3')
     plt.legend()
-
     plt.subplot(2, 2, 4)
-    plt.plot(time_list_32_2, QoS_list_32_2, label='QoS', marker='o')
+    plt.plot(time_list_32_2, QoS_list_32_2, label='QoS', marker='o', color='b')
     plt.xlabel('Time')
-    plt.ylabel('QoS_list_32_2')
-    plt.title('QoS_list_32_2 over Time')
+    plt.ylabel('QoS')
+    plt.title('QoS of 32 core system with utilization=0.7')
     plt.legend()
-
     plt.tight_layout()
     plt.show()
 
-    #scheduability_plot()
+
+if __name__ == '__main__':
+    Qos()
+    schedulability()
