@@ -15,10 +15,9 @@ class Task:
         self.remaining_execution_time = execution_time
         self.utilization = utilization
         self.priority = priority
-        self.predecessors = []
-        Task.tasks[id] = self
         self.successors = []
-        self.core = None
+        self.predecessors = predecessors
+        Task.tasks[id] = self
 
     @staticmethod
     def get_task(id):
