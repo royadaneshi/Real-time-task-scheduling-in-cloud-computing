@@ -88,15 +88,33 @@ def llf_schedule(core_tasks):
     QoS_list = []
     time_list = []
     slack_time = None
+    # Initialize a list to keep track of tasks for each core
+    core_queues = [PriorityQueue() for _ in core_tasks]
+    
+    # Fill the initial task queues based on release times
+    released_tasks = [[] for _ in range(len(core_tasks))]
     for i, tasks in enumerate(core_tasks):
         for task in tasks:
-            if task.remaining_execution_time > 0:
+            if task.release_time == 0 and task.remaining_execution_time > 0:
                 laxity = task.deadline - task.remaining_execution_time
                 core_queues[i].put((laxity, task))
-
-    while any(not core_queues[i].empty() for i in range(len(core_tasks))):
+            else:
+                released_tasks[i].append(task)
+    
+    while any(not core_queues[i].empty() or released_tasks[i] for i in range(len(core_tasks))):
         current_schedule = []
         QoS = 1
+        # Release tasks whose release time has come
+        for i in range(len(core_tasks)):
+            new_released_tasks = []
+            for task in released_tasks[i]:
+                if task.release_time <= time:
+                    if task.remaining_execution_time > 0:
+                        laxity = task.deadline - task.remaining_execution_time
+                        core_queues[i].put((laxity, task))
+                else:
+                    new_released_tasks.append(task)
+            released_tasks[i] = new_released_tasks
 
         for i in range(len(core_tasks)):
             if not core_queues[i].empty():
@@ -104,6 +122,8 @@ def llf_schedule(core_tasks):
                 if current_task.remaining_execution_time > 0:
                     current_task.remaining_execution_time -= 1
                     current_schedule.append((time, current_task.id, i + 1))
+                    
+                    # Recalculate laxity and re-add the task to the queue if it's not finished
                     if current_task.remaining_execution_time > 0:
                         laxity = current_task.deadline - time - current_task.remaining_execution_time
                         core_queues[i].put((laxity, current_task))
