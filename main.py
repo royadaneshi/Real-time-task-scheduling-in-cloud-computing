@@ -263,14 +263,6 @@ class ACO:
                     next_task, finish_time = ant.select_next_task()
                     if not next_task:
                         break
-                    if finish_time > 2 * next_task.deadline:
-                        laxity = finish_time - next_task.deadline
-                        QoS -= laxity / (i + 1)
-                        QoS = QoS % 1
-                    QoS_list[i + 1] = QoS
-                    if finish_time >= 2 * next_task.deadline:
-                        schedulable = False
-
                 ant.update_pheromone(self.rho)
                 if ant.total_time < self.best_time:
                     self.best_time = ant.total_time
