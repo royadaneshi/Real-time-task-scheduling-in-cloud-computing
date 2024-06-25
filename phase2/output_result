@@ -1,0 +1,1198 @@
+LLF scheduling:
+ACO: tasks on system with 16 cores and utilization of 0.25:
+Time 1: Task 5 on Core 6 deadline 14
+Time 1: Task 10 on Core 14 deadline 13
+Time 1: Task 28 on Core 3 deadline 7
+Time 2: Task 11 on Core 3 deadline 13
+Time 2: Task 39 on Core 11 deadline 11
+Time 2: Task 48 on Core 2 deadline 9
+Time 3: Task 22 on Core 1 deadline 13
+Time 3: Task 26 on Core 7 deadline 10
+Time 4: Task 7 on Core 16 deadline 13
+Time 4: Task 37 on Core 8 deadline 10
+Time 4: Task 42 on Core 12 deadline 11
+Time 5: Task 2 on Core 12 deadline 14
+Time 5: Task 24 on Core 4 deadline 9
+Time 5: Task 46 on Core 13 deadline 12
+Time 5: Task 47 on Core 2 deadline 13
+Time 6: Task 13 on Core 13 deadline 16
+Time 6: Task 15 on Core 8 deadline 15
+Time 6: Task 41 on Core 9 deadline 10
+Time 7: Task 1 on Core 4 deadline 15
+Time 7: Task 12 on Core 7 deadline 15
+Time 7: Task 19 on Core 11 deadline 15
+Time 7: Task 32 on Core 10 deadline 11
+Time 7: Task 36 on Core 3 deadline 15
+Time 7: Task 38 on Core 15 deadline 12
+Time 8: Task 43 on Core 10 deadline 16
+Time 9: Task 14 on Core 16 deadline 16
+Time 9: Task 17 on Core 5 deadline 17
+Time 9: Task 29 on Core 12 deadline 15
+Time 9: Task 40 on Core 1 deadline 13
+Time 10: Task 3 on Core 6 deadline 16
+Time 10: Task 16 on Core 9 deadline 15
+Time 10: Task 25 on Core 11 deadline 16
+Time 10: Task 49 on Core 14 deadline 15
+Time 11: Task 4 on Core 16 deadline 17
+Time 11: Task 20 on Core 15 deadline 20
+Time 11: Task 30 on Core 1 deadline 16
+Time 11: Task 50 on Core 14 deadline 16
+Time 12: Task 9 on Core 2 deadline 15
+Time 12: Task 27 on Core 8 deadline 17
+Time 13: Task 18 on Core 13 deadline 18
+Time 13: Task 35 on Core 5 deadline 17
+Time 14: Task 6 on Core 11 deadline 21
+Time 14: Task 8 on Core 9 deadline 20
+Time 14: Task 21 on Core 3 deadline 21
+Time 14: Task 31 on Core 6 deadline 18
+Time 14: Task 33 on Core 2 deadline 20
+Time 14: Task 44 on Core 10 deadline 22
+Time 16: Task 23 on Core 7 deadline 24
+Time 16: Task 34 on Core 4 deadline 23
+Time 16: Task 45 on Core 5 deadline 23
+LLF: tasks on system with 16 cores and utilization of 0.25:
+Time 0: Task 43 on Core 2
+Time 1: Task 5 on Core 1
+Time 1: Task 43 on Core 2
+Time 1: Task 10 on Core 4
+Time 1: Task 28 on Core 5
+Time 1: Task 36 on Core 7
+Time 1: Task 13 on Core 9
+Time 1: Task 15 on Core 10
+Time 1: Task 20 on Core 11
+Time 1: Task 31 on Core 13
+Time 1: Task 11 on Core 14
+Time 2: Task 5 on Core 1
+Time 2: Task 43 on Core 2
+Time 2: Task 25 on Core 3
+Time 2: Task 48 on Core 4
+Time 2: Task 36 on Core 7
+Time 2: Task 13 on Core 9
+Time 2: Task 15 on Core 10
+Time 2: Task 20 on Core 11
+Time 2: Task 31 on Core 13
+Time 2: Task 11 on Core 14
+Time 2: Task 39 on Core 15
+Time 3: Task 5 on Core 1
+Time 3: Task 43 on Core 2
+Time 3: Task 25 on Core 3
+Time 3: Task 48 on Core 4
+Time 3: Task 30 on Core 5
+Time 3: Task 2 on Core 6
+Time 3: Task 36 on Core 7
+Time 3: Task 13 on Core 9
+Time 3: Task 15 on Core 10
+Time 3: Task 22 on Core 11
+Time 3: Task 29 on Core 12
+Time 3: Task 31 on Core 13
+Time 3: Task 11 on Core 14
+Time 3: Task 39 on Core 15
+Time 3: Task 44 on Core 16
+Time 4: Task 5 on Core 1
+Time 4: Task 37 on Core 2
+Time 4: Task 25 on Core 3
+Time 4: Task 48 on Core 4
+Time 4: Task 30 on Core 5
+Time 4: Task 2 on Core 6
+Time 4: Task 36 on Core 7
+Time 4: Task 8 on Core 8
+Time 4: Task 7 on Core 9
+Time 4: Task 15 on Core 10
+Time 4: Task 4 on Core 11
+Time 4: Task 29 on Core 12
+Time 4: Task 31 on Core 13
+Time 4: Task 11 on Core 14
+Time 4: Task 39 on Core 15
+Time 4: Task 42 on Core 16
+Time 5: Task 5 on Core 1
+Time 5: Task 37 on Core 2
+Time 5: Task 25 on Core 3
+Time 5: Task 10 on Core 4
+Time 5: Task 30 on Core 5
+Time 5: Task 2 on Core 6
+Time 5: Task 24 on Core 7
+Time 5: Task 8 on Core 8
+Time 5: Task 7 on Core 9
+Time 5: Task 15 on Core 10
+Time 5: Task 4 on Core 11
+Time 5: Task 29 on Core 12
+Time 5: Task 31 on Core 13
+Time 5: Task 11 on Core 14
+Time 5: Task 39 on Core 15
+Time 5: Task 44 on Core 16
+Time 6: Task 5 on Core 1
+Time 6: Task 1 on Core 2
+Time 6: Task 41 on Core 3
+Time 6: Task 10 on Core 4
+Time 6: Task 30 on Core 5
+Time 6: Task 2 on Core 6
+Time 6: Task 24 on Core 7
+Time 6: Task 8 on Core 8
+Time 6: Task 7 on Core 9
+Time 6: Task 12 on Core 10
+Time 6: Task 4 on Core 11
+Time 6: Task 29 on Core 12
+Time 6: Task 31 on Core 13
+Time 6: Task 6 on Core 14
+Time 6: Task 39 on Core 15
+Time 6: Task 44 on Core 16
+Time 7: Task 5 on Core 1
+Time 7: Task 1 on Core 2
+Time 7: Task 47 on Core 3
+Time 7: Task 10 on Core 4
+Time 7: Task 30 on Core 5
+Time 7: Task 36 on Core 7
+Time 7: Task 32 on Core 8
+Time 7: Task 7 on Core 9
+Time 7: Task 12 on Core 10
+Time 7: Task 4 on Core 11
+Time 7: Task 29 on Core 12
+Time 7: Task 31 on Core 13
+Time 7: Task 6 on Core 14
+Time 7: Task 44 on Core 16
+Time 8: Task 5 on Core 1
+Time 8: Task 1 on Core 2
+Time 8: Task 10 on Core 4
+Time 8: Task 30 on Core 5
+Time 8: Task 36 on Core 7
+Time 8: Task 8 on Core 8
+Time 8: Task 7 on Core 9
+Time 8: Task 12 on Core 10
+Time 8: Task 4 on Core 11
+Time 8: Task 29 on Core 12
+Time 8: Task 31 on Core 13
+Time 8: Task 6 on Core 14
+Time 8: Task 44 on Core 16
+Time 9: Task 5 on Core 1
+Time 9: Task 1 on Core 2
+Time 9: Task 10 on Core 4
+Time 9: Task 30 on Core 5
+Time 9: Task 17 on Core 6
+Time 9: Task 36 on Core 7
+Time 9: Task 8 on Core 8
+Time 9: Task 13 on Core 9
+Time 9: Task 12 on Core 10
+Time 9: Task 4 on Core 11
+Time 9: Task 29 on Core 12
+Time 9: Task 31 on Core 13
+Time 9: Task 6 on Core 14
+Time 9: Task 44 on Core 16
+Time 10: Task 26 on Core 1
+Time 10: Task 1 on Core 2
+Time 10: Task 27 on Core 4
+Time 10: Task 40 on Core 5
+Time 10: Task 17 on Core 6
+Time 10: Task 35 on Core 7
+Time 10: Task 16 on Core 8
+Time 10: Task 13 on Core 9
+Time 10: Task 12 on Core 10
+Time 10: Task 4 on Core 11
+Time 10: Task 29 on Core 12
+Time 10: Task 46 on Core 13
+Time 10: Task 6 on Core 14
+Time 10: Task 50 on Core 15
+Time 10: Task 44 on Core 16
+Time 11: Task 26 on Core 1
+Time 11: Task 1 on Core 2
+Time 11: Task 27 on Core 4
+Time 11: Task 40 on Core 5
+Time 11: Task 17 on Core 6
+Time 11: Task 35 on Core 7
+Time 11: Task 16 on Core 8
+Time 11: Task 13 on Core 9
+Time 11: Task 12 on Core 10
+Time 11: Task 20 on Core 11
+Time 11: Task 29 on Core 12
+Time 11: Task 19 on Core 13
+Time 11: Task 6 on Core 14
+Time 11: Task 50 on Core 15
+Time 11: Task 44 on Core 16
+Time 12: Task 26 on Core 1
+Time 12: Task 1 on Core 2
+Time 12: Task 27 on Core 4
+Time 12: Task 17 on Core 6
+Time 12: Task 35 on Core 7
+Time 12: Task 16 on Core 8
+Time 12: Task 13 on Core 9
+Time 12: Task 12 on Core 10
+Time 12: Task 20 on Core 11
+Time 12: Task 38 on Core 12
+Time 12: Task 19 on Core 13
+Time 12: Task 49 on Core 14
+Time 12: Task 50 on Core 15
+Time 12: Task 44 on Core 16
+Time 13: Task 26 on Core 1
+Time 13: Task 1 on Core 2
+Time 13: Task 27 on Core 4
+Time 13: Task 9 on Core 6
+Time 13: Task 16 on Core 8
+Time 13: Task 18 on Core 9
+Time 13: Task 12 on Core 10
+Time 13: Task 20 on Core 11
+Time 13: Task 38 on Core 12
+Time 13: Task 19 on Core 13
+Time 13: Task 50 on Core 15
+Time 13: Task 3 on Core 16
+Time 14: Task 14 on Core 1
+Time 14: Task 1 on Core 2
+Time 14: Task 27 on Core 4
+Time 14: Task 9 on Core 6
+Time 14: Task 18 on Core 9
+Time 14: Task 12 on Core 10
+Time 14: Task 20 on Core 11
+Time 14: Task 38 on Core 12
+Time 14: Task 50 on Core 15
+Time 14: Task 3 on Core 16
+Time 15: Task 14 on Core 1
+Time 15: Task 43 on Core 2
+Time 15: Task 27 on Core 4
+Time 15: Task 18 on Core 9
+Time 15: Task 15 on Core 10
+Time 15: Task 20 on Core 11
+Time 15: Task 38 on Core 12
+Time 15: Task 34 on Core 15
+Time 15: Task 3 on Core 16
+Time 16: Task 45 on Core 1
+Time 16: Task 43 on Core 2
+Time 16: Task 18 on Core 9
+Time 16: Task 33 on Core 10
+Time 16: Task 21 on Core 12
+Time 16: Task 34 on Core 15
+Time 16: Task 3 on Core 16
+Time 17: Task 45 on Core 1
+Time 17: Task 23 on Core 2
+Time 17: Task 33 on Core 10
+Time 17: Task 21 on Core 12
+Time 17: Task 34 on Core 15
+Time 18: Task 45 on Core 1
+Time 18: Task 23 on Core 2
+Time 18: Task 33 on Core 10
+Time 18: Task 21 on Core 12
+Time 18: Task 34 on Core 15
+Time 19: Task 45 on Core 1
+Time 19: Task 23 on Core 2
+Time 19: Task 33 on Core 10
+Time 19: Task 21 on Core 12
+Time 19: Task 34 on Core 15
+Time 20: Task 45 on Core 1
+Time 20: Task 23 on Core 2
+Time 20: Task 33 on Core 10
+Time 20: Task 21 on Core 12
+Time 20: Task 34 on Core 15
+Time 21: Task 45 on Core 1
+Time 21: Task 23 on Core 2
+Time 21: Task 33 on Core 10
+Time 21: Task 21 on Core 12
+Time 21: Task 34 on Core 15
+Time 22: Task 45 on Core 1
+Time 22: Task 23 on Core 2
+Time 22: Task 33 on Core 10
+Time 22: Task 21 on Core 12
+Time 22: Task 34 on Core 15
+Time 23: Task 45 on Core 1
+Time 23: Task 23 on Core 2
+Time 23: Task 33 on Core 10
+Time 23: Task 34 on Core 15
+Time 24: Task 45 on Core 1
+Time 24: Task 23 on Core 2
+Time 25: Task 23 on Core 2
+ACO: tasks on system with 16 cores and utilization of 0.5:
+Time 1: Task 5 on Core 6 deadline 14
+Time 1: Task 10 on Core 11 deadline 20
+Time 1: Task 28 on Core 2 deadline 19
+Time 2: Task 11 on Core 2 deadline 18
+Time 2: Task 39 on Core 12 deadline 19
+Time 2: Task 48 on Core 3 deadline 17
+Time 3: Task 22 on Core 1 deadline 15
+Time 3: Task 26 on Core 7 deadline 24
+Time 4: Task 7 on Core 16 deadline 10
+Time 4: Task 37 on Core 8 deadline 11
+Time 4: Task 42 on Core 13 deadline 22
+Time 5: Task 13 on Core 13 deadline 15
+Time 5: Task 24 on Core 4 deadline 6
+Time 5: Task 46 on Core 14 deadline 12
+Time 5: Task 47 on Core 3 deadline 22
+Time 6: Task 2 on Core 3 deadline 14
+Time 6: Task 36 on Core 14 deadline 9
+Time 6: Task 41 on Core 9 deadline 16
+Time 7: Task 1 on Core 4 deadline 21
+Time 7: Task 12 on Core 7 deadline 9
+Time 7: Task 15 on Core 2 deadline 18
+Time 7: Task 19 on Core 9 deadline 11
+Time 7: Task 32 on Core 10 deadline 23
+Time 7: Task 38 on Core 15 deadline 10
+Time 8: Task 43 on Core 10 deadline 19
+Time 9: Task 17 on Core 5 deadline 21
+Time 9: Task 29 on Core 16 deadline 18
+Time 9: Task 40 on Core 1 deadline 15
+Time 10: Task 3 on Core 3 deadline 15
+Time 10: Task 14 on Core 6 deadline 19
+Time 10: Task 16 on Core 11 deadline 20
+Time 10: Task 25 on Core 9 deadline 19
+Time 10: Task 49 on Core 12 deadline 17
+Time 11: Task 20 on Core 15 deadline 12
+Time 11: Task 30 on Core 1 deadline 15
+Time 11: Task 50 on Core 12 deadline 23
+Time 12: Task 4 on Core 6 deadline 14
+Time 12: Task 9 on Core 8 deadline 16
+Time 12: Task 27 on Core 13 deadline 16
+Time 13: Task 18 on Core 5 deadline 15
+Time 13: Task 33 on Core 14 deadline 12
+Time 13: Task 35 on Core 2 deadline 13
+Time 14: Task 6 on Core 10 deadline 12
+Time 14: Task 8 on Core 9 deadline 13
+Time 14: Task 21 on Core 3 deadline 16
+Time 14: Task 31 on Core 8 deadline 12
+Time 14: Task 44 on Core 11 deadline 15
+Time 16: Task 23 on Core 7 deadline 11
+Time 16: Task 34 on Core 2 deadline 14
+Time 16: Task 45 on Core 4 deadline 14
+LLF: tasks on system with 16 cores and utilization of 0.5:
+Time 0: Task 41 on Core 1
+Time 0: Task 14 on Core 3
+Time 0: Task 3 on Core 4
+Time 0: Task 21 on Core 9
+Time 0: Task 17 on Core 13
+Time 0: Task 47 on Core 16
+Time 1: Task 6 on Core 1
+Time 1: Task 7 on Core 2
+Time 1: Task 24 on Core 3
+Time 1: Task 19 on Core 4
+Time 1: Task 34 on Core 5
+Time 1: Task 21 on Core 9
+Time 1: Task 10 on Core 10
+Time 1: Task 43 on Core 12
+Time 1: Task 17 on Core 13
+Time 1: Task 32 on Core 14
+Time 1: Task 42 on Core 15
+Time 1: Task 47 on Core 16
+Time 2: Task 6 on Core 1
+Time 2: Task 7 on Core 2
+Time 2: Task 14 on Core 3
+Time 2: Task 19 on Core 4
+Time 2: Task 34 on Core 5
+Time 2: Task 21 on Core 9
+Time 2: Task 10 on Core 10
+Time 2: Task 31 on Core 11
+Time 2: Task 43 on Core 12
+Time 2: Task 17 on Core 13
+Time 2: Task 32 on Core 14
+Time 2: Task 42 on Core 15
+Time 2: Task 47 on Core 16
+Time 3: Task 6 on Core 1
+Time 3: Task 7 on Core 2
+Time 3: Task 14 on Core 3
+Time 3: Task 19 on Core 4
+Time 3: Task 34 on Core 5
+Time 3: Task 20 on Core 7
+Time 3: Task 21 on Core 9
+Time 3: Task 10 on Core 10
+Time 3: Task 31 on Core 11
+Time 3: Task 2 on Core 12
+Time 3: Task 13 on Core 13
+Time 3: Task 15 on Core 14
+Time 3: Task 42 on Core 15
+Time 3: Task 47 on Core 16
+Time 4: Task 41 on Core 1
+Time 4: Task 7 on Core 2
+Time 4: Task 45 on Core 3
+Time 4: Task 19 on Core 4
+Time 4: Task 38 on Core 5
+Time 4: Task 20 on Core 7
+Time 4: Task 49 on Core 8
+Time 4: Task 21 on Core 9
+Time 4: Task 23 on Core 10
+Time 4: Task 31 on Core 11
+Time 4: Task 2 on Core 12
+Time 4: Task 17 on Core 13
+Time 4: Task 37 on Core 14
+Time 4: Task 42 on Core 15
+Time 4: Task 47 on Core 16
+Time 5: Task 27 on Core 2
+Time 5: Task 45 on Core 3
+Time 5: Task 3 on Core 4
+Time 5: Task 38 on Core 5
+Time 5: Task 36 on Core 6
+Time 5: Task 35 on Core 8
+Time 5: Task 21 on Core 9
+Time 5: Task 23 on Core 10
+Time 5: Task 31 on Core 11
+Time 5: Task 2 on Core 12
+Time 5: Task 17 on Core 13
+Time 5: Task 37 on Core 14
+Time 5: Task 42 on Core 15
+Time 5: Task 48 on Core 16
+Time 6: Task 12 on Core 1
+Time 6: Task 27 on Core 2
+Time 6: Task 45 on Core 3
+Time 6: Task 38 on Core 5
+Time 6: Task 29 on Core 6
+Time 6: Task 35 on Core 8
+Time 6: Task 21 on Core 9
+Time 6: Task 23 on Core 10
+Time 6: Task 31 on Core 11
+Time 6: Task 2 on Core 12
+Time 6: Task 33 on Core 13
+Time 6: Task 37 on Core 14
+Time 6: Task 46 on Core 15
+Time 6: Task 48 on Core 16
+Time 7: Task 12 on Core 1
+Time 7: Task 27 on Core 2
+Time 7: Task 45 on Core 3
+Time 7: Task 38 on Core 5
+Time 7: Task 29 on Core 6
+Time 7: Task 35 on Core 8
+Time 7: Task 21 on Core 9
+Time 7: Task 10 on Core 10
+Time 7: Task 11 on Core 11
+Time 7: Task 2 on Core 12
+Time 7: Task 33 on Core 13
+Time 7: Task 37 on Core 14
+Time 7: Task 46 on Core 15
+Time 7: Task 4 on Core 16
+Time 8: Task 27 on Core 2
+Time 8: Task 14 on Core 3
+Time 8: Task 28 on Core 4
+Time 8: Task 34 on Core 5
+Time 8: Task 29 on Core 6
+Time 8: Task 35 on Core 8
+Time 8: Task 1 on Core 9
+Time 8: Task 10 on Core 10
+Time 8: Task 11 on Core 11
+Time 8: Task 2 on Core 12
+Time 8: Task 33 on Core 13
+Time 8: Task 37 on Core 14
+Time 8: Task 46 on Core 15
+Time 8: Task 47 on Core 16
+Time 9: Task 50 on Core 1
+Time 9: Task 27 on Core 2
+Time 9: Task 14 on Core 3
+Time 9: Task 28 on Core 4
+Time 9: Task 34 on Core 5
+Time 9: Task 29 on Core 6
+Time 9: Task 35 on Core 8
+Time 9: Task 1 on Core 9
+Time 9: Task 10 on Core 10
+Time 9: Task 11 on Core 11
+Time 9: Task 2 on Core 12
+Time 9: Task 33 on Core 13
+Time 9: Task 15 on Core 14
+Time 9: Task 46 on Core 15
+Time 9: Task 47 on Core 16
+Time 10: Task 50 on Core 1
+Time 10: Task 27 on Core 2
+Time 10: Task 14 on Core 3
+Time 10: Task 28 on Core 4
+Time 10: Task 34 on Core 5
+Time 10: Task 29 on Core 6
+Time 10: Task 39 on Core 7
+Time 10: Task 35 on Core 8
+Time 10: Task 1 on Core 9
+Time 10: Task 10 on Core 10
+Time 10: Task 11 on Core 11
+Time 10: Task 2 on Core 12
+Time 10: Task 17 on Core 13
+Time 10: Task 15 on Core 14
+Time 10: Task 46 on Core 15
+Time 10: Task 47 on Core 16
+Time 11: Task 50 on Core 1
+Time 11: Task 27 on Core 2
+Time 11: Task 28 on Core 4
+Time 11: Task 34 on Core 5
+Time 11: Task 29 on Core 6
+Time 11: Task 39 on Core 7
+Time 11: Task 35 on Core 8
+Time 11: Task 1 on Core 9
+Time 11: Task 10 on Core 10
+Time 11: Task 11 on Core 11
+Time 11: Task 2 on Core 12
+Time 11: Task 17 on Core 13
+Time 11: Task 15 on Core 14
+Time 11: Task 46 on Core 15
+Time 12: Task 50 on Core 1
+Time 12: Task 27 on Core 2
+Time 12: Task 28 on Core 4
+Time 12: Task 25 on Core 5
+Time 12: Task 29 on Core 6
+Time 12: Task 39 on Core 7
+Time 12: Task 35 on Core 8
+Time 12: Task 1 on Core 9
+Time 12: Task 30 on Core 10
+Time 12: Task 11 on Core 11
+Time 12: Task 22 on Core 12
+Time 12: Task 15 on Core 14
+Time 12: Task 44 on Core 15
+Time 13: Task 50 on Core 1
+Time 13: Task 27 on Core 2
+Time 13: Task 28 on Core 4
+Time 13: Task 25 on Core 5
+Time 13: Task 29 on Core 6
+Time 13: Task 39 on Core 7
+Time 13: Task 49 on Core 8
+Time 13: Task 1 on Core 9
+Time 13: Task 11 on Core 11
+Time 13: Task 22 on Core 12
+Time 13: Task 15 on Core 14
+Time 13: Task 44 on Core 15
+Time 14: Task 50 on Core 1
+Time 14: Task 8 on Core 2
+Time 14: Task 28 on Core 4
+Time 14: Task 25 on Core 5
+Time 14: Task 29 on Core 6
+Time 14: Task 39 on Core 7
+Time 14: Task 49 on Core 8
+Time 14: Task 1 on Core 9
+Time 14: Task 16 on Core 11
+Time 14: Task 22 on Core 12
+Time 14: Task 15 on Core 14
+Time 14: Task 44 on Core 15
+Time 15: Task 50 on Core 1
+Time 15: Task 8 on Core 2
+Time 15: Task 25 on Core 5
+Time 15: Task 40 on Core 6
+Time 15: Task 39 on Core 7
+Time 15: Task 49 on Core 8
+Time 15: Task 1 on Core 9
+Time 15: Task 16 on Core 11
+Time 15: Task 22 on Core 12
+Time 15: Task 15 on Core 14
+Time 15: Task 44 on Core 15
+Time 16: Task 50 on Core 1
+Time 16: Task 8 on Core 2
+Time 16: Task 25 on Core 5
+Time 16: Task 40 on Core 6
+Time 16: Task 9 on Core 7
+Time 16: Task 49 on Core 8
+Time 16: Task 5 on Core 9
+Time 16: Task 16 on Core 11
+Time 16: Task 22 on Core 12
+Time 16: Task 15 on Core 14
+Time 16: Task 44 on Core 15
+Time 17: Task 50 on Core 1
+Time 17: Task 8 on Core 2
+Time 17: Task 25 on Core 5
+Time 17: Task 40 on Core 6
+Time 17: Task 9 on Core 7
+Time 17: Task 49 on Core 8
+Time 17: Task 16 on Core 11
+Time 17: Task 43 on Core 12
+Time 17: Task 32 on Core 14
+Time 17: Task 44 on Core 15
+Time 18: Task 8 on Core 2
+Time 18: Task 25 on Core 5
+Time 18: Task 40 on Core 6
+Time 18: Task 9 on Core 7
+Time 18: Task 49 on Core 8
+Time 18: Task 16 on Core 11
+Time 18: Task 43 on Core 12
+Time 18: Task 32 on Core 14
+Time 18: Task 44 on Core 15
+Time 19: Task 26 on Core 2
+Time 19: Task 25 on Core 5
+Time 19: Task 40 on Core 6
+Time 19: Task 9 on Core 7
+Time 19: Task 49 on Core 8
+Time 19: Task 16 on Core 11
+Time 19: Task 43 on Core 12
+Time 19: Task 32 on Core 14
+Time 19: Task 42 on Core 15
+Time 20: Task 26 on Core 2
+Time 20: Task 40 on Core 6
+Time 20: Task 18 on Core 8
+Time 20: Task 16 on Core 11
+Time 20: Task 43 on Core 12
+Time 20: Task 32 on Core 14
+Time 20: Task 42 on Core 15
+Time 21: Task 26 on Core 2
+Time 21: Task 16 on Core 11
+Time 21: Task 32 on Core 14
+Time 21: Task 42 on Core 15
+Time 22: Task 26 on Core 2
+Time 22: Task 32 on Core 14
+Time 22: Task 42 on Core 15
+Time 23: Task 26 on Core 2
+Time 23: Task 32 on Core 14
+Time 24: Task 26 on Core 2
+Time 25: Task 26 on Core 2
+Time 26: Task 26 on Core 2
+Time 27: Task 26 on Core 2
+ACO: tasks on system with 32 cores and utilization of 0.3:
+Time 0: Task 43 on Core 30 deadline 11
+Time 1: Task 5 on Core 22 deadline 13
+Time 1: Task 10 on Core 14 deadline 12
+Time 1: Task 11 on Core 16 deadline 18
+Time 1: Task 13 on Core 19 deadline 13
+Time 1: Task 15 on Core 24 deadline 19
+Time 1: Task 28 on Core 1 deadline 18
+Time 1: Task 36 on Core 26 deadline 23
+Time 2: Task 39 on Core 10 deadline 17
+Time 2: Task 48 on Core 3 deadline 13
+Time 3: Task 2 on Core 20 deadline 17
+Time 3: Task 22 on Core 2 deadline 14
+Time 3: Task 26 on Core 6 deadline 19
+Time 3: Task 29 on Core 31 deadline 17
+Time 4: Task 7 on Core 15 deadline 18
+Time 4: Task 25 on Core 2 deadline 21
+Time 4: Task 37 on Core 7 deadline 15
+Time 4: Task 42 on Core 11 deadline 9
+Time 4: Task 47 on Core 18 deadline 19
+Time 5: Task 14 on Core 32 deadline 17
+Time 5: Task 20 on Core 18 deadline 15
+Time 5: Task 24 on Core 5 deadline 10
+Time 5: Task 30 on Core 3 deadline 7
+Time 5: Task 46 on Core 12 deadline 19
+Time 6: Task 1 on Core 23 deadline 14
+Time 6: Task 4 on Core 7 deadline 7
+Time 6: Task 12 on Core 25 deadline 18
+Time 6: Task 18 on Core 30 deadline 20
+Time 6: Task 41 on Core 8 deadline 19
+Time 7: Task 6 on Core 14 deadline 17
+Time 7: Task 8 on Core 10 deadline 16
+Time 7: Task 19 on Core 27 deadline 14
+Time 7: Task 31 on Core 8 deadline 20
+Time 7: Task 32 on Core 9 deadline 17
+Time 7: Task 33 on Core 5 deadline 8
+Time 7: Task 38 on Core 13 deadline 10
+Time 7: Task 44 on Core 20 deadline 23
+Time 7: Task 45 on Core 32 deadline 16
+Time 8: Task 3 on Core 1 deadline 17
+Time 8: Task 23 on Core 2 deadline 16
+Time 9: Task 17 on Core 4 deadline 16
+Time 9: Task 27 on Core 12 deadline 16
+Time 9: Task 35 on Core 16 deadline 16
+Time 9: Task 40 on Core 17 deadline 19
+Time 10: Task 16 on Core 28 deadline 17
+Time 10: Task 34 on Core 24 deadline 18
+Time 10: Task 49 on Core 29 deadline 19
+Time 10: Task 50 on Core 11 deadline 21
+Time 11: Task 21 on Core 6 deadline 8
+Time 12: Task 9 on Core 21 deadline 11
+LLF: tasks on system with 32 cores and utilization of 0.3:
+Time 0: Task 33 on Core 9
+Time 0: Task 46 on Core 10
+Time 0: Task 27 on Core 21
+Time 0: Task 45 on Core 28
+Time 1: Task 39 on Core 2
+Time 1: Task 24 on Core 8
+Time 1: Task 46 on Core 10
+Time 1: Task 48 on Core 11
+Time 1: Task 8 on Core 14
+Time 1: Task 27 on Core 21
+Time 1: Task 45 on Core 28
+Time 2: Task 39 on Core 2
+Time 2: Task 38 on Core 3
+Time 2: Task 21 on Core 6
+Time 2: Task 26 on Core 9
+Time 2: Task 46 on Core 10
+Time 2: Task 48 on Core 11
+Time 2: Task 5 on Core 12
+Time 2: Task 18 on Core 13
+Time 2: Task 8 on Core 14
+Time 2: Task 27 on Core 21
+Time 2: Task 45 on Core 28
+Time 3: Task 4 on Core 1
+Time 3: Task 30 on Core 2
+Time 3: Task 38 on Core 3
+Time 3: Task 21 on Core 6
+Time 3: Task 34 on Core 8
+Time 3: Task 26 on Core 9
+Time 3: Task 46 on Core 10
+Time 3: Task 5 on Core 12
+Time 3: Task 18 on Core 13
+Time 3: Task 8 on Core 14
+Time 3: Task 37 on Core 15
+Time 3: Task 17 on Core 18
+Time 3: Task 35 on Core 20
+Time 3: Task 27 on Core 21
+Time 3: Task 2 on Core 23
+Time 3: Task 16 on Core 25
+Time 3: Task 43 on Core 27
+Time 3: Task 45 on Core 28
+Time 3: Task 14 on Core 30
+Time 4: Task 39 on Core 2
+Time 4: Task 13 on Core 5
+Time 4: Task 21 on Core 6
+Time 4: Task 34 on Core 8
+Time 4: Task 26 on Core 9
+Time 4: Task 20 on Core 10
+Time 4: Task 5 on Core 12
+Time 4: Task 18 on Core 13
+Time 4: Task 8 on Core 14
+Time 4: Task 17 on Core 18
+Time 4: Task 19 on Core 19
+Time 4: Task 27 on Core 21
+Time 4: Task 29 on Core 22
+Time 4: Task 2 on Core 23
+Time 4: Task 16 on Core 25
+Time 4: Task 43 on Core 27
+Time 4: Task 45 on Core 28
+Time 4: Task 14 on Core 30
+Time 5: Task 39 on Core 2
+Time 5: Task 9 on Core 4
+Time 5: Task 13 on Core 5
+Time 5: Task 41 on Core 6
+Time 5: Task 34 on Core 8
+Time 5: Task 26 on Core 9
+Time 5: Task 20 on Core 10
+Time 5: Task 5 on Core 12
+Time 5: Task 18 on Core 13
+Time 5: Task 8 on Core 14
+Time 5: Task 17 on Core 18
+Time 5: Task 19 on Core 19
+Time 5: Task 27 on Core 21
+Time 5: Task 29 on Core 22
+Time 5: Task 2 on Core 23
+Time 5: Task 16 on Core 25
+Time 5: Task 43 on Core 27
+Time 5: Task 45 on Core 28
+Time 5: Task 14 on Core 30
+Time 6: Task 9 on Core 4
+Time 6: Task 41 on Core 6
+Time 6: Task 22 on Core 7
+Time 6: Task 34 on Core 8
+Time 6: Task 26 on Core 9
+Time 6: Task 20 on Core 10
+Time 6: Task 5 on Core 12
+Time 6: Task 18 on Core 13
+Time 6: Task 8 on Core 14
+Time 6: Task 42 on Core 16
+Time 6: Task 1 on Core 17
+Time 6: Task 17 on Core 18
+Time 6: Task 19 on Core 19
+Time 6: Task 29 on Core 22
+Time 6: Task 2 on Core 23
+Time 6: Task 16 on Core 25
+Time 6: Task 43 on Core 27
+Time 6: Task 45 on Core 28
+Time 6: Task 14 on Core 30
+Time 6: Task 12 on Core 31
+Time 7: Task 9 on Core 4
+Time 7: Task 40 on Core 5
+Time 7: Task 41 on Core 6
+Time 7: Task 22 on Core 7
+Time 7: Task 34 on Core 8
+Time 7: Task 20 on Core 10
+Time 7: Task 5 on Core 12
+Time 7: Task 18 on Core 13
+Time 7: Task 8 on Core 14
+Time 7: Task 1 on Core 17
+Time 7: Task 17 on Core 18
+Time 7: Task 19 on Core 19
+Time 7: Task 29 on Core 22
+Time 7: Task 43 on Core 27
+Time 7: Task 45 on Core 28
+Time 7: Task 6 on Core 29
+Time 7: Task 12 on Core 31
+Time 8: Task 40 on Core 5
+Time 8: Task 41 on Core 6
+Time 8: Task 15 on Core 7
+Time 8: Task 20 on Core 10
+Time 8: Task 5 on Core 12
+Time 8: Task 10 on Core 13
+Time 8: Task 8 on Core 14
+Time 8: Task 31 on Core 15
+Time 8: Task 1 on Core 17
+Time 8: Task 17 on Core 18
+Time 8: Task 19 on Core 19
+Time 8: Task 29 on Core 22
+Time 8: Task 45 on Core 28
+Time 8: Task 6 on Core 29
+Time 8: Task 12 on Core 31
+Time 9: Task 28 on Core 3
+Time 9: Task 7 on Core 4
+Time 9: Task 40 on Core 5
+Time 9: Task 41 on Core 6
+Time 9: Task 15 on Core 7
+Time 9: Task 5 on Core 12
+Time 9: Task 10 on Core 13
+Time 9: Task 31 on Core 15
+Time 9: Task 1 on Core 17
+Time 9: Task 17 on Core 18
+Time 9: Task 19 on Core 19
+Time 9: Task 29 on Core 22
+Time 9: Task 23 on Core 26
+Time 9: Task 6 on Core 29
+Time 9: Task 12 on Core 31
+Time 10: Task 28 on Core 3
+Time 10: Task 7 on Core 4
+Time 10: Task 40 on Core 5
+Time 10: Task 41 on Core 6
+Time 10: Task 15 on Core 7
+Time 10: Task 49 on Core 12
+Time 10: Task 31 on Core 15
+Time 10: Task 1 on Core 17
+Time 10: Task 19 on Core 19
+Time 10: Task 29 on Core 22
+Time 10: Task 23 on Core 26
+Time 10: Task 6 on Core 29
+Time 10: Task 12 on Core 31
+Time 10: Task 11 on Core 32
+Time 11: Task 32 on Core 1
+Time 11: Task 28 on Core 3
+Time 11: Task 7 on Core 4
+Time 11: Task 40 on Core 5
+Time 11: Task 15 on Core 7
+Time 11: Task 49 on Core 12
+Time 11: Task 25 on Core 14
+Time 11: Task 31 on Core 15
+Time 11: Task 50 on Core 17
+Time 11: Task 3 on Core 24
+Time 11: Task 23 on Core 26
+Time 11: Task 6 on Core 29
+Time 11: Task 12 on Core 31
+Time 11: Task 11 on Core 32
+Time 12: Task 32 on Core 1
+Time 12: Task 7 on Core 4
+Time 12: Task 40 on Core 5
+Time 12: Task 15 on Core 7
+Time 12: Task 47 on Core 11
+Time 12: Task 49 on Core 12
+Time 12: Task 25 on Core 14
+Time 12: Task 31 on Core 15
+Time 12: Task 36 on Core 16
+Time 12: Task 50 on Core 17
+Time 12: Task 3 on Core 24
+Time 12: Task 23 on Core 26
+Time 12: Task 12 on Core 31
+Time 12: Task 11 on Core 32
+Time 13: Task 32 on Core 1
+Time 13: Task 7 on Core 4
+Time 13: Task 40 on Core 5
+Time 13: Task 15 on Core 7
+Time 13: Task 47 on Core 11
+Time 13: Task 49 on Core 12
+Time 13: Task 25 on Core 14
+Time 13: Task 31 on Core 15
+Time 13: Task 36 on Core 16
+Time 13: Task 50 on Core 17
+Time 13: Task 44 on Core 18
+Time 13: Task 3 on Core 24
+Time 13: Task 12 on Core 31
+Time 13: Task 11 on Core 32
+Time 14: Task 32 on Core 1
+Time 14: Task 7 on Core 4
+Time 14: Task 40 on Core 5
+Time 14: Task 15 on Core 7
+Time 14: Task 47 on Core 11
+Time 14: Task 49 on Core 12
+Time 14: Task 25 on Core 14
+Time 14: Task 31 on Core 15
+Time 14: Task 36 on Core 16
+Time 14: Task 50 on Core 17
+Time 14: Task 44 on Core 18
+Time 14: Task 3 on Core 24
+Time 14: Task 11 on Core 32
+Time 15: Task 32 on Core 1
+Time 15: Task 15 on Core 7
+Time 15: Task 47 on Core 11
+Time 15: Task 49 on Core 12
+Time 15: Task 25 on Core 14
+Time 15: Task 31 on Core 15
+Time 15: Task 36 on Core 16
+Time 15: Task 50 on Core 17
+Time 15: Task 44 on Core 18
+Time 15: Task 11 on Core 32
+Time 16: Task 49 on Core 12
+Time 16: Task 25 on Core 14
+Time 16: Task 36 on Core 16
+Time 16: Task 50 on Core 17
+Time 16: Task 44 on Core 18
+Time 16: Task 11 on Core 32
+Time 17: Task 49 on Core 12
+Time 17: Task 25 on Core 14
+Time 17: Task 36 on Core 16
+Time 17: Task 50 on Core 17
+Time 17: Task 44 on Core 18
+Time 18: Task 25 on Core 14
+Time 18: Task 36 on Core 16
+Time 18: Task 50 on Core 17
+Time 18: Task 44 on Core 18
+Time 19: Task 25 on Core 14
+Time 19: Task 36 on Core 16
+Time 19: Task 44 on Core 18
+Time 20: Task 44 on Core 18
+Time 21: Task 44 on Core 18
+ACO: tasks on system with 32 cores and utilization of 0.7:
+Time 0: Task 43 on Core 30 deadline 16
+Time 1: Task 5 on Core 15 deadline 20
+Time 1: Task 10 on Core 10 deadline 13
+Time 1: Task 11 on Core 17 deadline 15
+Time 1: Task 13 on Core 23 deadline 12
+Time 1: Task 15 on Core 24 deadline 15
+Time 1: Task 28 on Core 1 deadline 10
+Time 1: Task 36 on Core 21 deadline 15
+Time 2: Task 39 on Core 11 deadline 15
+Time 2: Task 48 on Core 4 deadline 11
+Time 3: Task 2 on Core 20 deadline 11
+Time 3: Task 22 on Core 2 deadline 12
+Time 3: Task 26 on Core 6 deadline 17
+Time 3: Task 29 on Core 31 deadline 14
+Time 4: Task 7 on Core 16 deadline 12
+Time 4: Task 25 on Core 2 deadline 14
+Time 4: Task 37 on Core 7 deadline 16
+Time 4: Task 42 on Core 12 deadline 14
+Time 4: Task 47 on Core 19 deadline 20
+Time 5: Task 4 on Core 19 deadline 17
+Time 5: Task 14 on Core 1 deadline 17
+Time 5: Task 24 on Core 3 deadline 18
+Time 5: Task 30 on Core 4 deadline 19
+Time 5: Task 46 on Core 13 deadline 15
+Time 6: Task 1 on Core 25 deadline 22
+Time 6: Task 12 on Core 26 deadline 8
+Time 6: Task 18 on Core 30 deadline 10
+Time 6: Task 20 on Core 13 deadline 18
+Time 6: Task 41 on Core 8 deadline 19
+Time 7: Task 6 on Core 8 deadline 9
+Time 7: Task 8 on Core 3 deadline 10
+Time 7: Task 19 on Core 27 deadline 12
+Time 7: Task 31 on Core 1 deadline 17
+Time 7: Task 32 on Core 9 deadline 9
+Time 7: Task 33 on Core 6 deadline 19
+Time 7: Task 38 on Core 14 deadline 14
+Time 7: Task 44 on Core 11 deadline 18
+Time 7: Task 45 on Core 24 deadline 7
+Time 8: Task 3 on Core 32 deadline 10
+Time 8: Task 23 on Core 2 deadline 16
+Time 9: Task 17 on Core 5 deadline 19
+Time 9: Task 27 on Core 7 deadline 10
+Time 9: Task 35 on Core 17 deadline 18
+Time 9: Task 40 on Core 18 deadline 12
+Time 10: Task 16 on Core 28 deadline 13
+Time 10: Task 34 on Core 20 deadline 14
+Time 10: Task 49 on Core 29 deadline 9
+Time 10: Task 50 on Core 12 deadline 18
+Time 11: Task 21 on Core 10 deadline 17
+Time 12: Task 9 on Core 22 deadline 15
+LLF: tasks on system with 32 cores and utilization of 0.7:
+Time 0: Task 21 on Core 1
+Time 0: Task 8 on Core 5
+Time 0: Task 27 on Core 16
+Time 0: Task 19 on Core 19
+Time 0: Task 29 on Core 20
+Time 1: Task 21 on Core 1
+Time 1: Task 45 on Core 3
+Time 1: Task 37 on Core 4
+Time 1: Task 8 on Core 5
+Time 1: Task 13 on Core 14
+Time 1: Task 5 on Core 16
+Time 1: Task 48 on Core 17
+Time 1: Task 19 on Core 19
+Time 1: Task 29 on Core 20
+Time 1: Task 42 on Core 22
+Time 1: Task 9 on Core 25
+Time 1: Task 38 on Core 29
+Time 2: Task 45 on Core 3
+Time 2: Task 37 on Core 4
+Time 2: Task 28 on Core 8
+Time 2: Task 40 on Core 12
+Time 2: Task 13 on Core 14
+Time 2: Task 5 on Core 16
+Time 2: Task 48 on Core 17
+Time 2: Task 49 on Core 18
+Time 2: Task 19 on Core 19
+Time 2: Task 29 on Core 20
+Time 2: Task 42 on Core 22
+Time 2: Task 9 on Core 25
+Time 2: Task 36 on Core 28
+Time 2: Task 38 on Core 29
+Time 3: Task 32 on Core 2
+Time 3: Task 37 on Core 4
+Time 3: Task 12 on Core 6
+Time 3: Task 2 on Core 7
+Time 3: Task 28 on Core 8
+Time 3: Task 40 on Core 12
+Time 3: Task 13 on Core 14
+Time 3: Task 41 on Core 15
+Time 3: Task 5 on Core 16
+Time 3: Task 48 on Core 17
+Time 3: Task 19 on Core 19
+Time 3: Task 42 on Core 22
+Time 3: Task 9 on Core 25
+Time 3: Task 36 on Core 28
+Time 3: Task 38 on Core 29
+Time 3: Task 14 on Core 32
+Time 4: Task 32 on Core 2
+Time 4: Task 6 on Core 4
+Time 4: Task 12 on Core 6
+Time 4: Task 2 on Core 7
+Time 4: Task 28 on Core 8
+Time 4: Task 17 on Core 10
+Time 4: Task 40 on Core 12
+Time 4: Task 13 on Core 14
+Time 4: Task 41 on Core 15
+Time 4: Task 5 on Core 16
+Time 4: Task 48 on Core 17
+Time 4: Task 19 on Core 19
+Time 4: Task 42 on Core 22
+Time 4: Task 9 on Core 25
+Time 4: Task 36 on Core 28
+Time 4: Task 38 on Core 29
+Time 4: Task 14 on Core 32
+Time 5: Task 32 on Core 2
+Time 5: Task 6 on Core 4
+Time 5: Task 24 on Core 7
+Time 5: Task 28 on Core 8
+Time 5: Task 18 on Core 10
+Time 5: Task 40 on Core 12
+Time 5: Task 7 on Core 13
+Time 5: Task 13 on Core 14
+Time 5: Task 41 on Core 15
+Time 5: Task 5 on Core 16
+Time 5: Task 1 on Core 17
+Time 5: Task 42 on Core 22
+Time 5: Task 11 on Core 23
+Time 5: Task 15 on Core 24
+Time 5: Task 9 on Core 25
+Time 5: Task 36 on Core 28
+Time 5: Task 38 on Core 29
+Time 5: Task 14 on Core 32
+Time 6: Task 3 on Core 1
+Time 6: Task 32 on Core 2
+Time 6: Task 37 on Core 4
+Time 6: Task 24 on Core 7
+Time 6: Task 31 on Core 8
+Time 6: Task 18 on Core 10
+Time 6: Task 40 on Core 12
+Time 6: Task 7 on Core 13
+Time 6: Task 13 on Core 14
+Time 6: Task 41 on Core 15
+Time 6: Task 1 on Core 17
+Time 6: Task 42 on Core 22
+Time 6: Task 11 on Core 23
+Time 6: Task 15 on Core 24
+Time 6: Task 9 on Core 25
+Time 6: Task 36 on Core 28
+Time 6: Task 38 on Core 29
+Time 6: Task 14 on Core 32
+Time 7: Task 3 on Core 1
+Time 7: Task 4 on Core 3
+Time 7: Task 37 on Core 4
+Time 7: Task 24 on Core 7
+Time 7: Task 31 on Core 8
+Time 7: Task 18 on Core 10
+Time 7: Task 40 on Core 12
+Time 7: Task 7 on Core 13
+Time 7: Task 33 on Core 14
+Time 7: Task 41 on Core 15
+Time 7: Task 1 on Core 17
+Time 7: Task 47 on Core 18
+Time 7: Task 42 on Core 22
+Time 7: Task 11 on Core 23
+Time 7: Task 15 on Core 24
+Time 7: Task 9 on Core 25
+Time 7: Task 38 on Core 29
+Time 7: Task 39 on Core 30
+Time 7: Task 14 on Core 32
+Time 8: Task 3 on Core 1
+Time 8: Task 4 on Core 3
+Time 8: Task 37 on Core 4
+Time 8: Task 24 on Core 7
+Time 8: Task 31 on Core 8
+Time 8: Task 17 on Core 10
+Time 8: Task 44 on Core 11
+Time 8: Task 50 on Core 12
+Time 8: Task 7 on Core 13
+Time 8: Task 33 on Core 14
+Time 8: Task 41 on Core 15
+Time 8: Task 1 on Core 17
+Time 8: Task 47 on Core 18
+Time 8: Task 25 on Core 21
+Time 8: Task 42 on Core 22
+Time 8: Task 11 on Core 23
+Time 8: Task 15 on Core 24
+Time 8: Task 34 on Core 26
+Time 8: Task 23 on Core 27
+Time 8: Task 38 on Core 29
+Time 8: Task 39 on Core 30
+Time 9: Task 3 on Core 1
+Time 9: Task 4 on Core 3
+Time 9: Task 37 on Core 4
+Time 9: Task 31 on Core 8
+Time 9: Task 17 on Core 10
+Time 9: Task 44 on Core 11
+Time 9: Task 50 on Core 12
+Time 9: Task 7 on Core 13
+Time 9: Task 33 on Core 14
+Time 9: Task 41 on Core 15
+Time 9: Task 1 on Core 17
+Time 9: Task 47 on Core 18
+Time 9: Task 11 on Core 23
+Time 9: Task 15 on Core 24
+Time 9: Task 34 on Core 26
+Time 9: Task 23 on Core 27
+Time 9: Task 38 on Core 29
+Time 9: Task 39 on Core 30
+Time 10: Task 4 on Core 3
+Time 10: Task 37 on Core 4
+Time 10: Task 43 on Core 5
+Time 10: Task 31 on Core 8
+Time 10: Task 10 on Core 9
+Time 10: Task 17 on Core 10
+Time 10: Task 44 on Core 11
+Time 10: Task 50 on Core 12
+Time 10: Task 30 on Core 13
+Time 10: Task 33 on Core 14
+Time 10: Task 41 on Core 15
+Time 10: Task 1 on Core 17
+Time 10: Task 47 on Core 18
+Time 10: Task 11 on Core 23
+Time 10: Task 15 on Core 24
+Time 10: Task 34 on Core 26
+Time 10: Task 39 on Core 30
+Time 10: Task 46 on Core 31
+Time 11: Task 4 on Core 3
+Time 11: Task 43 on Core 5
+Time 11: Task 31 on Core 8
+Time 11: Task 10 on Core 9
+Time 11: Task 44 on Core 11
+Time 11: Task 50 on Core 12
+Time 11: Task 30 on Core 13
+Time 11: Task 33 on Core 14
+Time 11: Task 16 on Core 15
+Time 11: Task 1 on Core 17
+Time 11: Task 47 on Core 18
+Time 11: Task 11 on Core 23
+Time 11: Task 15 on Core 24
+Time 11: Task 34 on Core 26
+Time 11: Task 46 on Core 31
+Time 12: Task 26 on Core 2
+Time 12: Task 4 on Core 3
+Time 12: Task 43 on Core 5
+Time 12: Task 20 on Core 6
+Time 12: Task 31 on Core 8
+Time 12: Task 35 on Core 9
+Time 12: Task 44 on Core 11
+Time 12: Task 50 on Core 12
+Time 12: Task 30 on Core 13
+Time 12: Task 16 on Core 15
+Time 12: Task 1 on Core 17
+Time 12: Task 47 on Core 18
+Time 12: Task 15 on Core 24
+Time 12: Task 34 on Core 26
+Time 13: Task 26 on Core 2
+Time 13: Task 20 on Core 6
+Time 13: Task 31 on Core 8
+Time 13: Task 35 on Core 9
+Time 13: Task 44 on Core 11
+Time 13: Task 50 on Core 12
+Time 13: Task 30 on Core 13
+Time 13: Task 47 on Core 18
+Time 13: Task 15 on Core 24
+Time 14: Task 26 on Core 2
+Time 14: Task 20 on Core 6
+Time 14: Task 35 on Core 9
+Time 14: Task 44 on Core 11
+Time 14: Task 30 on Core 13
+Time 15: Task 20 on Core 6
+Time 15: Task 35 on Core 9
+Time 15: Task 44 on Core 11
+Time 15: Task 30 on Core 13
+Time 16: Task 20 on Core 6
+Time 16: Task 35 on Core 9
+Time 16: Task 22 on Core 11
+Time 16: Task 30 on Core 13
+Time 17: Task 22 on Core 11
+Time 17: Task 30 on Core 13
+
+Process finished with exit code 0
+
