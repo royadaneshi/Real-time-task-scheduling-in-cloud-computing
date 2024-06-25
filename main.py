@@ -593,7 +593,6 @@ def plot_ACO(tasks, num_tasks, num_cores, method, utilization):
     averages = {key: sums_and_counts[key][0] / sums_and_counts[key][1] for key in sums_and_counts}
     averaged_data = [(averages[key], key) for key in averages]
 
-
     if method == "QoS":
         plot_gantt_chart(best_schedule, num_cores, f"ACO, Cores:{num_cores}, Utilization:{utilization}")
     return [t[0] for t in averaged_data], [t[1] for t in averaged_data], schedulable
