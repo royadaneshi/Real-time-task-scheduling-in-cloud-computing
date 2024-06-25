@@ -312,15 +312,15 @@ def plot_gantt_chart(schedule, num_cores, title):
 
 def plot_gantt_chart_with_makespan(schedule, num_cores, title):
     fig, gnt = plt.subplots()
+    fig.suptitle(title)
     gnt.set_xlabel('Time')
     gnt.set_ylabel('Cores')
 
     gnt.set_yticks([i + 1 for i in range(num_cores)])
     gnt.set_yticklabels([f'Core {i + 1}' for i in range(num_cores)])
     gnt.set_ylim(0.5, num_cores + 0.5)
-    fig.suptitle(title)
-    task_start_finish_times = {}
 
+    task_start_finish_times = {}
     for time, task_id, core in schedule:
         if task_id not in task_start_finish_times:
             task_start_finish_times[task_id] = [time, time]
@@ -372,9 +372,9 @@ def schedulability():
         _, _, _, slack = llf_schedule(cores1)
         _, _, schedulability = plot_ACO(tasks, num_tasks, 16, "schedulability", 0.25)
         if not schedulability:
-            schedulable_16_25_ACO -= 2
+            schedulable_16_25_ACO -= 5
         if slack:
-            schedulable_16_25_LLF -= 2
+            schedulable_16_25_LLF -= 5
     for i in range(0, 20):
         num_tasks = 50
         total_utilization = 0.5
@@ -383,9 +383,9 @@ def schedulability():
         _, _, _, slack = llf_schedule(cores1)
         _, _, schedulability = plot_ACO(tasks, num_tasks, 16, "schedulability", 0.5)
         if not schedulability:
-            schedulable_16_05_ACO -= 2
+            schedulable_16_05_ACO -= 5
         if slack:
-            schedulable_16_05_LLF -= 2
+            schedulable_16_05_LLF -= 5
 
     for i in range(0, 20):
         num_tasks = 50
@@ -395,9 +395,9 @@ def schedulability():
         _, _, _, slack = llf_schedule(cores1)
         _, _, schedulability = plot_ACO(tasks, num_tasks, 32, "schedulability", 0.3)
         if not schedulability:
-            schedulable_32_3_ACO -= 2
+            schedulable_32_3_ACO -= 5
         if slack:
-            schedulable_32_3_LLF -= 2
+            schedulable_32_3_LLF -= 5
 
     for i in range(0, 20):
         num_tasks = 50
@@ -407,9 +407,9 @@ def schedulability():
         _, _, _, slack = llf_schedule(cores1)
         _, _, schedulability = plot_ACO(tasks, num_tasks, 32, "schedulability", 0.7)
         if not schedulability:
-            schedulable_32_7_ACO -= 2
+            schedulable_32_7_ACO -= 5
         if slack:
-            schedulable_32_7_LLF -= 2
+            schedulable_32_7_LLF -= 5
 
     fig = plt.figure(figsize=(10, 5))
     type = ['16 core with 0.25 utilization', '16 core with 0.5 utilization', '32 core with 0.3 utilization',
